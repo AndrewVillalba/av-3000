@@ -1,0 +1,107 @@
+* {
+    perspective: 500px;
+}
+
+.beatpad {
+    width: 100vw;
+    height: 100vh;
+    border: solid red 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-top {
+        height: 37rem;
+        width: 56rem;
+        border: blue 1px solid;
+        transform: rotateX(9deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-front {
+        height: 4rem;
+        width: 61.35rem;
+        margin: 1.2rem;
+        transform: rotateX(-5deg);
+        border: blue 1px solid;
+    }
+}
+
+.display {
+    border: 1px red solid;
+    margin: 2rem 2rem 1rem 2rem;
+    height: 25%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+
+    &-add {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 2rem 0 2rem;
+    }
+
+    &-screen {
+        width: 80%;
+        height: 80%;
+        border: 1px red solid;
+    }
+}
+
+.bottom {
+    border: 1px blue solid;
+    width: 98%;
+    height: 63%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &-sliders {
+        border: 1px solid red;
+        width: 20%;
+        height: 85%;
+        margin: 1rem;
+    }
+
+    &-pads {
+        border: 1px solid orange;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        &-pad {
+            height: 5rem;
+            width: 5.5rem;
+        }
+
+        &-row-one {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-row-two {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-row-three {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-row-four {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
