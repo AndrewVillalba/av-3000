@@ -2,6 +2,7 @@ import "./AV3000.scss";
 import Pads from "../../components/Pads/Pads";
 
 function AV3000() {
+
   return (
     <>
       <div className="beatpad">
@@ -44,10 +45,7 @@ function AV3000() {
               </div>
             </div>
             <div className="bottom-pads">
-              <Pads />
-              <Pads />
-              <Pads />
-              <Pads />
+              <Pads/>
             </div>
           </div>
         </div>

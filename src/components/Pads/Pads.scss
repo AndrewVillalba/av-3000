@@ -1,8 +1,8 @@
 
 
 .pad {
-    height: 91%;
-    width: 20%;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     background-color: gray;
@@ -10,7 +10,7 @@
     border-radius: 5px;
 
     &:active {
-        height: 87%;
+        height: 96%;
     }
 
     &__depth {
@@ -24,6 +24,11 @@
             height: 100%;
             background-color: pink;
         }
+    }
+
+    &__audio {
+        width: 100%;
+        height: 100%;
     }
 }
 
