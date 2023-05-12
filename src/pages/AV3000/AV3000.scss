@@ -148,6 +148,10 @@
             &__button {
                 width: 16px;
                 height: 1rem;
+
+                &--active {
+                    background-color: red;
+                }
             }
         }
     }

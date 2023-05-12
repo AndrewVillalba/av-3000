@@ -19,6 +19,9 @@
         border-bottom: gray solid 1px;
         border-radius: 4px;
         background-color: pink;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:active {
             height: 100%;
@@ -38,5 +41,16 @@
     justify-content: space-around;
     align-items: center;
     height: 25%;
+}
+
+.pad--active {
+    height: 96%;
+    background-color: red;
+}
+
+.pad__depth--active {
+    height: 100%;
+    border-bottom: gray solid 1px;
+    border-radius: 4px;
 }
 
