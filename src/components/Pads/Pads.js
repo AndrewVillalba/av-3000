@@ -398,7 +398,6 @@ const padBankD = [
   },
 ];
 
-  
 
 const PadSingle = ({ play, sound: { key, audio, keyCode }}) => {
 
@@ -450,10 +449,13 @@ const Pad = ({ play, padBank }) => {
   return selectedPadBank.map((sound) => <PadSingle sound={sound} play={play}/>);
 };
 
-function Pads({padBank}) {
+function Pads({padBank, volume}) {
 
     const play = (key) => {
         const audio = document.getElementById(key);
+        
+        audio.volume = volume
+        console.log(volume)
         audio.currentTime = 0;
         audio.play()
     }

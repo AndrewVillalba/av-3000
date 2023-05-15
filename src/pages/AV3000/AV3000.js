@@ -3,12 +3,12 @@ import Pads from "../../components/Pads/Pads";
 import { useState } from "react";
 
 function AV3000() {
+  const [padBank, setPadBank] = useState("A");
+  const [volume, setVolume] = useState(0.75);
 
-    const [padBank, setPadBank] = useState('A')
-
-    const changePadBank = (button) => {
-      setPadBank(button)
-    }
+  const changePadBank = (button) => {
+    setPadBank(button);
+  };
 
   return (
     <>
@@ -20,7 +20,17 @@ function AV3000() {
           </div>
           <div className="bottom">
             <div className="bottom-sliders">
-              <div className="bottom-sliders__left"></div>
+              <div className="bottom-sliders__left">
+                <input
+                  className="bottom-sliders__left-slider"
+                  onChange={(e) => setVolume(e.target.value)}
+                  type="range"
+                  step="0.1"
+                  value={volume}
+                  min="0"
+                  max="1"
+                />
+              </div>
               <div className="bottom-sliders__right"></div>
             </div>
             <div className="bottom-buttons">
@@ -28,20 +38,48 @@ function AV3000() {
                 <div className="pad-bank-left">
                   <div className="bottom-buttons-pad-bank__wrapper--left">
                     <span className="bottom-buttons-pad-bank__letter">A</span>
-                    <button onClick={() =>changePadBank('A')} className={`bottom-buttons-pad-bank__button${padBank === 'A' ? ' bottom-buttons-pad-bank__button--active' : ''}`}></button>
+                    <button
+                      onClick={() => changePadBank("A")}
+                      className={`bottom-buttons-pad-bank__button${
+                        padBank === "A"
+                          ? " bottom-buttons-pad-bank__button--active"
+                          : ""
+                      }`}
+                    ></button>
                   </div>
                   <div className="bottom-buttons-pad-bank__wrapper--left">
                     <span className="bottom-buttons-pad-bank__letter">B</span>
-                    <button onClick={() =>changePadBank('B')} className={`bottom-buttons-pad-bank__button${padBank === 'B' ? ' bottom-buttons-pad-bank__button--active' : ''}`}></button>
+                    <button
+                      onClick={() => changePadBank("B")}
+                      className={`bottom-buttons-pad-bank__button${
+                        padBank === "B"
+                          ? " bottom-buttons-pad-bank__button--active"
+                          : ""
+                      }`}
+                    ></button>
                   </div>
                 </div>
                 <div className="pad-bank-right">
                   <div className="bottom-buttons-pad-bank__wrapper--right">
-                    <button onClick={() =>changePadBank('C')} className={`bottom-buttons-pad-bank__button${padBank === 'C' ? ' bottom-buttons-pad-bank__button--active' : ''}`}></button>
+                    <button
+                      onClick={() => changePadBank("C")}
+                      className={`bottom-buttons-pad-bank__button${
+                        padBank === "C"
+                          ? " bottom-buttons-pad-bank__button--active"
+                          : ""
+                      }`}
+                    ></button>
                     <span className="bottom-buttons-pad-bank__letter">C</span>
                   </div>
                   <div className="bottom-buttons-pad-bank__wrapper--right">
-                    <button onClick={() =>changePadBank('D')} className={`bottom-buttons-pad-bank__button${padBank === 'D' ? ' bottom-buttons-pad-bank__button--active' : ''}`}></button>
+                    <button
+                      onClick={() => changePadBank("D")}
+                      className={`bottom-buttons-pad-bank__button${
+                        padBank === "D"
+                          ? " bottom-buttons-pad-bank__button--active"
+                          : ""
+                      }`}
+                    ></button>
                     <span className="bottom-buttons-pad-bank__letter">D</span>
                   </div>
                 </div>
@@ -52,7 +90,7 @@ function AV3000() {
               </div>
             </div>
             <div className="bottom-pads">
-              <Pads padBank={padBank}/>
+              <Pads volume={volume} padBank={padBank} />
             </div>
           </div>
         </div>

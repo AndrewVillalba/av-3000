@@ -82,6 +82,15 @@
             border: 1px solid black;
             width: 40%;
             height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &-slider {
+                -webkit-appearance: slider-vertical;
+                height: 90%;
+                width: 10%;
+            }
         }
 
         &__right {
