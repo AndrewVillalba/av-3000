@@ -5,7 +5,6 @@
 .beatpad {
     width: 100vw;
     height: 100vh;
-    border: solid red 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,14 +13,13 @@
     &-top {
         min-height: 37rem;
         width: 56rem;
-        // border: blue 1px solid;
         transform: rotateX(9deg);
         display: flex;
         flex-direction: column;
         align-items: center;
         z-index: 1;
         border-radius: 3px;
-        background-color: #4E6E81;
+        background-color: #858484;
         box-shadow: 0 2px rgb(91, 91, 91);
     }
 
@@ -30,10 +28,9 @@
         width: 61.35rem;
         margin: 1.06rem;
         transform: rotateX(-5deg);
-        // border: blue 1px solid;
         border-radius: 3px;
         border-top: none;
-        background-color: #4E6E81;
+        background-color: #858484;
     }
 }
 
@@ -62,15 +59,15 @@
 }
 
 .bottom {
-    border: 1px blue solid;
     width: 98%;
     height: 63%;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    background-color: lightgray;
 
     &-sliders {
-        border: 1px solid red;
+        background-color: #b2b4b2;
         width: 20%;
         height: 85%;
         margin: 1rem;
@@ -83,13 +80,24 @@
             width: 40%;
             height: 95%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-around;
             align-items: center;
 
+            &-label {
+                font-size: 10px;
+
+                &--wrapper {
+                    background-color: red;
+                    width: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
             &-slider {
-                -webkit-appearance: slider-vertical;
-                height: 90%;
-                width: 10%;
+
             }
         }
 
@@ -132,21 +140,21 @@
 
         &-pad-bank {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             width: 100%;
             height: 3.5rem;
 
             &__wrapper--left {
-                border: 1px blue solid;
                 display: flex;
                 justify-content: space-around;
+                align-items: center;
                 width: 4rem;
             }
 
             &__wrapper--right {
-                border: 1px blue solid;
                 display: flex;
                 justify-content: space-around;
+                align-items: center;
                 width: 4rem;
             }
 
@@ -157,6 +165,7 @@
             &__button {
                 width: 16px;
                 height: 1rem;
+                border: 1px solid #858484;
 
                 &--active {
                     background-color: red;
@@ -166,14 +175,9 @@
     }
 
     &-pads {
-        border: 1px solid orange;
         width: 50%;
         height: 100%;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: space-around;
-        background-color: lightgray;
+        background-color: #b2b4b2;
         display: grid;
         grid-template-rows: repeat(4, 23.2%);
         grid-template-columns: repeat(4, 1fr);

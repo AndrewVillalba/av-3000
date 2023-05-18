@@ -6,7 +6,7 @@
     display: flex;
     justify-content: flex-end;
     background-color: gray;
-    border: 1px solid gray;
+    border: none;
     border-radius: 5px;
 
     &:active {
@@ -18,14 +18,14 @@
         width: 100%;
         border-bottom: gray solid 1px;
         border-radius: 4px;
-        background-color: pink;
+        background-color: #54585a;
         display: flex;
         align-items: center;
         justify-content: center;
 
         &:active {
             height: 100%;
-            background-color: pink;
+            background-color: #186EE2;
         }
     }
 
@@ -45,12 +45,13 @@
 
 .pad--active {
     height: 96%;
-    background-color: red;
+    background-color: yellow;
 }
 
 .pad__depth--active {
     height: 100%;
-    border-bottom: gray solid 1px;
+    border-bottom: #54585a solid 1px;
     border-radius: 4px;
+    background-color: #186EE2;
 }
 

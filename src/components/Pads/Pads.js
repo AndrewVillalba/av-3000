@@ -399,18 +399,22 @@ const padBankD = [
 ];
 
 
-const PadSingle = ({ play, sound: { key, audio, keyCode }}) => {
+const PadSingle = ({ playPad, sound: { key, audio, keyCode }, volume}) => {
 
   const [active, setActive] = useState(false)
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         document.addEventListener('keyup', handleKeyUp)
-    }, []);  
+        return () => {
+          document.removeEventListener("keydown", handleKeyDown);
+          document.removeEventListener("keyup", handleKeyUp);
+        };
+    }, [volume]);  
 
     const handleKeyDown = (e) => {
         if(e.keyCode === keyCode) {
-            play(key)
+            playPad(key)
             setActive(true)
         }
     }
@@ -422,14 +426,14 @@ const PadSingle = ({ play, sound: { key, audio, keyCode }}) => {
     }
 
     return (
-        <button className={`pad${active ? ' pad--active' : ''}`} onClick={() => play(key)}>
-            <audio preload id={key} src={audio} />
+        <button className={`pad${active ? ' pad--active' : ''}`} onClick={() => playPad(key)}>
+            <audio id={key} src={audio} />
         <div id={key} className={`pad__depth${active ? ' pad__depth--active' : ''}`}>{key}</div>
         </button>
     );
 }
 
-const Pad = ({ play, padBank }) => {
+const Pad = ({ playPad, padBank, volume }) => {
 
   let selectedPadBank = padBank
 
@@ -446,23 +450,21 @@ const Pad = ({ play, padBank }) => {
     selectedPadBank = padBankD;
   }
 
-  return selectedPadBank.map((sound) => <PadSingle sound={sound} play={play}/>);
+  return selectedPadBank.map((sound) => <PadSingle volume={volume} sound={sound} playPad={playPad}/>);
 };
 
 function Pads({padBank, volume}) {
 
-    const play = (key) => {
-        const audio = document.getElementById(key);
-        
+    const playPad = (key) => {
+        const audio = document.getElementById(key);        
         audio.volume = volume
-        console.log(volume)
         audio.currentTime = 0;
         audio.play()
     }
  
   return (
     <>
-      <Pad padBank={padBank} play={play}/>
+      <Pad volume={volume} padBank={padBank} playPad={playPad}/>
     </>
   );
 }

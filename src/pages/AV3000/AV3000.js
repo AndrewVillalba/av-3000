@@ -1,6 +1,8 @@
 import "./AV3000.scss";
 import Pads from "../../components/Pads/Pads";
 import { useState } from "react";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 
 function AV3000() {
   const [padBank, setPadBank] = useState("A");
@@ -21,15 +23,39 @@ function AV3000() {
           <div className="bottom">
             <div className="bottom-sliders">
               <div className="bottom-sliders__left">
-                <input
+                {/* <input
                   className="bottom-sliders__left-slider"
+                  aria-orientation="vertical"
                   onChange={(e) => setVolume(e.target.value)}
                   type="range"
                   step="0.1"
                   value={volume}
                   min="0"
                   max="1"
-                />
+                /> */}
+                <Box 
+                sx={{ height: 220 }}>
+                  <Slider
+                    className="bottom-sliders__left-slider"
+                    sx={{
+                      '& input[type="range"]': {
+                        WebkitAppearance: "slider-vertical",
+                      },
+                    }}
+                    orientation="vertical"
+                    defaultValue={volume}
+                    aria-label="Temperature"
+                    valueLabelDisplay={volume}
+                    step={0.01}
+                    value={volume}
+                    min={0}
+                    max={1}
+                    onChange={(e) => setVolume(e.target.value)}
+                  />
+                </Box>
+                <div className="bottom-sliders__left-label--wrapper">
+                  <span className="bottom-sliders__left-label">MASTER</span>
+                </div>
               </div>
               <div className="bottom-sliders__right"></div>
             </div>
